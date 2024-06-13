@@ -1,0 +1,63 @@
+import React from "react";
+import "./ProductDisplay.css";
+import star_icon from "../Assets/star-icon.png";
+import star_dull_icon from "../Assets/star-dull-icon.png";
+
+const ProductDisplay = (props) => {
+  const { product } = props;
+  return (
+    <div className="productdisplay">
+      <div className="productdisplay-left">
+        <div className="productdisplay-img-list">
+          <img src={product.image} alt="" />
+          <img src={product.image} alt="" />
+          <img src={product.image} alt="" />
+          <img src={product.image} alt="" />
+        </div>
+        <div className="productdisplay-img">
+          <img src={product.image} alt="" className="productdisplay-main-img" />
+        </div>
+      </div>
+      <div className="productdisplay-right">
+        <h1>{product.name}</h1>
+        <div className="productdisplay-right-star">
+          <img src={star_icon} alt="" width={20} />
+          <img src={star_icon} alt="" width={20} />
+          <img src={star_icon} alt="" width={20} />
+          <img src={star_icon} alt="" width={20} />
+          <img src={star_dull_icon} alt="" width={20} />
+          <p>(123)</p>
+        </div>
+        <div className="productdisplay-right-prices">
+          <div className="productdispaly-right-price-old">
+            ${product.old_price}
+          </div>
+          <div className="productdispaly-right-price-new">
+            ${product.new_price}
+          </div>
+        </div>
+        <div className="productdisplay-right-description">
+          A timeless wardrobe staple, this classic white Oxford shirt offers a
+          perfect blend of comfort and style. Crafted from premium cotton, it
+          features a tailored fit, button-down collar, and a versatile design
+          suitable for both formal and casual occasions.
+        </div>
+        <div className="productdisplay-right-size">
+            <h1>Select Size</h1>
+            <div className="productdisplay-right-sizes">
+                <div>S</div>
+                <div>M</div>
+                <div>L</div>
+                <div>XL</div>
+                <div>XXL</div>
+            </div>
+        </div>
+        <button>ADD TO CART</button>
+        <p className="productdisplay-right-category"><span>Category :</span>Women, T-Shirt, Crop Top</p>
+        <p className="productdisplay-right-category"><span>Tags :</span>Mdern Latest</p>
+      </div>
+    </div>
+  );
+};
+
+export default ProductDisplay;
