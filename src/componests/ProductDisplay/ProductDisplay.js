@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ProductDisplay.css";
 import star_icon from "../Assets/star-icon.png";
 import star_dull_icon from "../Assets/star-dull-icon.png";
+import { ShopContext } from "../../context/ShopContext";
 
 const ProductDisplay = (props) => {
   const { product } = props;
+  const {addToCart} = useContext(ShopContext)
+
   return (
     <div className="productdisplay">
       <div className="productdisplay-left">
@@ -20,12 +23,12 @@ const ProductDisplay = (props) => {
       </div>
       <div className="productdisplay-right">
         <h1>{product.name}</h1>
-        <div className="productdisplay-right-star">
-          <img src={star_icon} alt="" width={20} />
-          <img src={star_icon} alt="" width={20} />
-          <img src={star_icon} alt="" width={20} />
-          <img src={star_icon} alt="" width={20} />
-          <img src={star_dull_icon} alt="" width={20} />
+        <div className="productdisplay-right-stars">
+          <img src={star_icon} alt="" width={15} />
+          <img src={star_icon} alt="" width={15} />
+          <img src={star_icon} alt="" width={15} />
+          <img src={star_icon} alt="" width={15} />
+          <img src={star_dull_icon} alt="" width={15} />
           <p>(123)</p>
         </div>
         <div className="productdisplay-right-prices">
@@ -38,9 +41,7 @@ const ProductDisplay = (props) => {
         </div>
         <div className="productdisplay-right-description">
           A timeless wardrobe staple, this classic white Oxford shirt offers a
-          perfect blend of comfort and style. Crafted from premium cotton, it
-          features a tailored fit, button-down collar, and a versatile design
-          suitable for both formal and casual occasions.
+          perfect blend of comfort and style. Crafted from premium cotton.
         </div>
         <div className="productdisplay-right-size">
             <h1>Select Size</h1>
@@ -52,7 +53,7 @@ const ProductDisplay = (props) => {
                 <div>XXL</div>
             </div>
         </div>
-        <button>ADD TO CART</button>
+        <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
         <p className="productdisplay-right-category"><span>Category :</span>Women, T-Shirt, Crop Top</p>
         <p className="productdisplay-right-category"><span>Tags :</span>Mdern Latest</p>
       </div>
